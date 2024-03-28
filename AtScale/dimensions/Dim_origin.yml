@@ -1,0 +1,17 @@
+unique_name: Dim_origin
+object_type: dimension
+label: Dim origin
+hierarchies:
+  - unique_name: origin_Hierarchy
+    label: origin_Hierarchy
+    folder: Olist_marketing_qualified_leads
+    levels:
+      - unique_name: origin
+is_degenerate: true
+level_attributes:
+  - unique_name: origin
+    label: origin
+    dataset: olist_marketing_qualified_leads_dataset
+    key_columns:
+      - origin
+    name_column: origin

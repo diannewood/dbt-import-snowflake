@@ -1,0 +1,11 @@
+unique_name: order_cost
+object_type: metric
+label: order_cost
+description: >-
+  The cost for each order item. Cost is calculated as a sum of the supply cost
+  for each order item.
+calculation_method: sum
+column: order_cost
+dataset: orders_dataset
+folder: Orders
+unrelated_dimensions_handling: repeat

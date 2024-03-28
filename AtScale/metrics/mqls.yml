@@ -1,0 +1,8 @@
+unique_name: mqls
+object_type: metric
+label: mqls
+calculation_method: count non-null
+column: mqls
+dataset: olist_marketing_qualified_leads_dataset
+folder: Olist_marketing_qualified_leads
+unrelated_dimensions_handling: repeat

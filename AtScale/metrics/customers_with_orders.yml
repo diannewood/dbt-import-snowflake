@@ -1,0 +1,9 @@
+unique_name: customers_with_orders
+object_type: metric
+label: customers_with_orders
+description: Distinct count of customers placing orders
+calculation_method: count distinct
+column: customers_with_orders
+dataset: orders_dataset
+folder: Orders
+unrelated_dimensions_handling: repeat
