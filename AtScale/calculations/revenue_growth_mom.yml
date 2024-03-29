@@ -1,0 +1,8 @@
+unique_name: revenue_growth_mom
+object_type: metric_calc
+label: revenue_growth_mom
+description: Percentage growth of revenue compared to 1 month ago. Excluded tax
+expression: >-
+  ([Measures].[revenue] -
+  [Measures].[revenue_prev_month])*100/[Measures].[revenue_prev_month]
+folder: Other Calculations

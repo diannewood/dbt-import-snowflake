@@ -1,0 +1,6 @@
+unique_name: dbt_connection_con1
+object_type: connection
+label: DBT snowflake Connection con1
+as_connection: con1
+database: atscale-data-warehouse
+schema: dbt_dwood
