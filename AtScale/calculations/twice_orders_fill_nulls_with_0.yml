@@ -1,0 +1,6 @@
+unique_name: twice_orders_fill_nulls_with_0
+object_type: metric_calc
+label: twice_orders_fill_nulls_with_0
+description: Example derived metric.
+expression: 2 * [Measures].[orders_fill_nulls_with_zero]
+folder: Other Calculations
