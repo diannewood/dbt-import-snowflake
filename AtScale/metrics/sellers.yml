@@ -1,8 +1,0 @@
-unique_name: sellers
-object_type: metric
-label: sellers
-calculation_method: count non-null
-column: sellers
-dataset: olist_closed_deals_dataset
-folder: Olist_closed_deals
-unrelated_dimensions_handling: repeat
