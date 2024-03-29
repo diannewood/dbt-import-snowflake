@@ -1,9 +1,0 @@
-unique_name: lifetime_spend_pretax
-object_type: metric
-label: lifetime_spend_pretax
-description: Customer lifetime spend before taxes.
-calculation_method: sum
-column: lifetime_spend_pretax
-dataset: customers_dataset
-folder: Customers
-unrelated_dimensions_handling: repeat
