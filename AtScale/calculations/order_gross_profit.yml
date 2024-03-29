@@ -1,6 +1,0 @@
-unique_name: order_gross_profit
-object_type: metric_calc
-label: order_gross_profit
-description: Gross profit from each order.
-expression: '[Measures].[revenue] - [Measures].[order_cost]'
-folder: Other Calculations

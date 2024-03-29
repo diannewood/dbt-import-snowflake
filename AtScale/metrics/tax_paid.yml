@@ -1,9 +1,0 @@
-unique_name: tax_paid
-object_type: metric
-label: tax_paid
-description: The total tax paid on each order.
-calculation_method: sum
-column: TAX_PAID
-dataset: orders_dataset
-folder: Orders
-unrelated_dimensions_handling: repeat
