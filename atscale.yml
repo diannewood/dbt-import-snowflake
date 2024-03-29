@@ -1,0 +1,6 @@
+unique_name: jaffle_shop.catalog
+object_type: catalog
+label: jaffle_shop
+aggressive_agg_promotion: false
+as_version: 1
+build_speculative_aggs: false

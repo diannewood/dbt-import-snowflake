@@ -1,0 +1,17 @@
+unique_name: Dim_orders
+object_type: dimension
+label: Dim orders
+description: This dimension was generated from a relationship to dbt model 'orders'
+hierarchies:
+  - unique_name: Orders Hierarchy
+    label: Orders Hierarchy
+    folder: Orders
+    levels:
+      - unique_name: order_id
+level_attributes:
+  - unique_name: order_id
+    label: order_id
+    dataset: orders_dataset
+    key_columns:
+      - order_id
+    name_column: order_id

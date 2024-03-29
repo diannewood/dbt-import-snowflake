@@ -1,0 +1,9 @@
+unique_name: median_revenue
+object_type: metric
+label: median_revenue
+description: The median revenue generated for each order item.
+calculation_method: average
+column: median_revenue
+dataset: order_items_dataset
+folder: Order_items
+unrelated_dimensions_handling: repeat
