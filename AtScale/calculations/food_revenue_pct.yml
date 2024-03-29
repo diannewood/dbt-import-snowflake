@@ -1,6 +1,0 @@
-unique_name: food_revenue_pct
-object_type: metric_calc
-label: food_revenue_pct
-description: The % of order revenue from food.
-expression: '[Measures].[food_revenue] / [Measures].[revenue]'
-folder: Other Calculations
