@@ -1,0 +1,17 @@
+unique_name: Dim_is_food_order
+object_type: dimension
+label: Dim is_food_order
+hierarchies:
+  - unique_name: is_food_order_Hierarchy
+    label: is_food_order_Hierarchy
+    folder: Orders
+    levels:
+      - unique_name: is_food_order
+is_degenerate: true
+level_attributes:
+  - unique_name: is_food_order
+    label: is_food_order
+    dataset: orders_dataset
+    key_columns:
+      - is_food_order
+    name_column: IS_FOOD_ORDER
