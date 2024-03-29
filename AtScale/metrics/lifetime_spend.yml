@@ -1,9 +1,0 @@
-unique_name: lifetime_spend
-object_type: metric
-label: lifetime_spend
-description: Gross customer lifetime spend inclusive of taxes.
-calculation_method: sum
-column: LIFETIME_SPEND
-dataset: customers_dataset
-folder: Customers
-unrelated_dimensions_handling: repeat
