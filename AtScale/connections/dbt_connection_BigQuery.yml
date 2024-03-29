@@ -1,0 +1,6 @@
+unique_name: dbt_connection_BigQuery
+object_type: connection
+label: DBT bigquery Connection BigQuery
+as_connection: BigQuery
+database: ATSCALE-DATA-WAREHOUSE
+schema: DBT_DWOOD
