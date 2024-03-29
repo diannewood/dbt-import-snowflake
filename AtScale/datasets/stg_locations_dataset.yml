@@ -10,7 +10,7 @@ columns:
   - name: OPENED_AT
     data_type: datetime
   - name: AVERAGE_TAX_RATE
-    data_type: double
+    data_type: decimal
     sql: TAX_RATE
 connection_id: dbt_connection_con1
 table: STG_LOCATIONS
