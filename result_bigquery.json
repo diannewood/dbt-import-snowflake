@@ -4,8 +4,8 @@
             "unique_name": "dbt_connection_BigQuery",
             "object_type": "connection",
             "label": "DBT bigquery Connection BigQuery",
-            "database": "ATSCALE-DATA-WAREHOUSE",
-            "schema": "DBT_DWOOD",
+            "database": "atscale-data-warehouse",
+            "schema": "dbt_dwood",
             "as_connection": "BigQuery"
         }
     ],
@@ -14,37 +14,11 @@
             "label": "jaffle_shop",
             "relationships": [
                 {
-                    "unique_name": "orders_dataset_Dim_stg_locations",
-                    "from": {
-                        "dataset": "orders_dataset",
-                        "join_columns": [
-                            "LOCATION"
-                        ]
-                    },
-                    "to": {
-                        "dimension": "Dim_stg_locations",
-                        "level": "location"
-                    }
-                },
-                {
-                    "unique_name": "orders_dataset_Dim_customers",
-                    "from": {
-                        "dataset": "orders_dataset",
-                        "join_columns": [
-                            "CUSTOMER"
-                        ]
-                    },
-                    "to": {
-                        "dimension": "Dim_customers",
-                        "level": "customer"
-                    }
-                },
-                {
                     "unique_name": "order_items_dataset_Dim_orders",
                     "from": {
                         "dataset": "order_items_dataset",
                         "join_columns": [
-                            "ORDER_ID"
+                            "order_id"
                         ]
                     },
                     "to": {
@@ -57,7 +31,7 @@
                     "from": {
                         "dataset": "order_items_dataset",
                         "join_columns": [
-                            "PRODUCT"
+                            "product"
                         ]
                     },
                     "to": {
@@ -66,11 +40,11 @@
                     }
                 },
                 {
-                    "unique_name": "stg_locations_dataset_Dim_stg_locations",
+                    "unique_name": "orders_dataset_Dim_stg_locations",
                     "from": {
-                        "dataset": "stg_locations_dataset",
+                        "dataset": "orders_dataset",
                         "join_columns": [
-                            "LOCATION"
+                            "location"
                         ]
                     },
                     "to": {
@@ -79,11 +53,11 @@
                     }
                 },
                 {
-                    "unique_name": "customers_dataset_Dim_customers",
+                    "unique_name": "orders_dataset_Dim_customers",
                     "from": {
-                        "dataset": "customers_dataset",
+                        "dataset": "orders_dataset",
                         "join_columns": [
-                            "CUSTOMER"
+                            "customer"
                         ]
                     },
                     "to": {
@@ -96,7 +70,7 @@
                     "from": {
                         "dataset": "orders_dataset",
                         "join_columns": [
-                            "ORDER_ID"
+                            "order_id"
                         ]
                     },
                     "to": {
@@ -105,53 +79,37 @@
                     }
                 },
                 {
-                    "unique_name": "orders_dataset_Date Dimension_ordered_at",
+                    "unique_name": "stg_locations_dataset_Dim_stg_locations",
                     "from": {
-                        "dataset": "orders_dataset",
+                        "dataset": "stg_locations_dataset",
                         "join_columns": [
-                            "ORDERED_AT"
+                            "location"
                         ]
                     },
                     "to": {
-                        "dimension": "Date Dimension",
-                        "level": "DayMonth"
-                    },
-                    "role_play": "ordered_at {0}"
+                        "dimension": "Dim_stg_locations",
+                        "level": "location"
+                    }
                 },
                 {
-                    "unique_name": "orders_dataset_Date Dimension_ordered_at_test",
+                    "unique_name": "customers_dataset_Dim_customers",
                     "from": {
-                        "dataset": "orders_dataset",
+                        "dataset": "customers_dataset",
                         "join_columns": [
-                            "ORDERED_AT_TEST"
+                            "customer"
                         ]
                     },
                     "to": {
-                        "dimension": "Date Dimension",
-                        "level": "DayMonth"
-                    },
-                    "role_play": "ordered_at_test {0}"
-                },
-                {
-                    "unique_name": "order_items_dataset_Date Dimension_ordered_at",
-                    "from": {
-                        "dataset": "order_items_dataset",
-                        "join_columns": [
-                            "ORDERED_AT"
-                        ]
-                    },
-                    "to": {
-                        "dimension": "Date Dimension",
-                        "level": "DayMonth"
-                    },
-                    "role_play": "ordered_at {0}"
+                        "dimension": "Dim_customers",
+                        "level": "customer"
+                    }
                 },
                 {
                     "unique_name": "customers_dataset_Date Dimension_first_ordered_at",
                     "from": {
                         "dataset": "customers_dataset",
                         "join_columns": [
-                            "FIRST_ORDERED_AT"
+                            "first_ordered_at"
                         ]
                     },
                     "to": {
@@ -165,7 +123,7 @@
                     "from": {
                         "dataset": "customers_dataset",
                         "join_columns": [
-                            "LAST_ORDERED_AT"
+                            "last_ordered_at"
                         ]
                     },
                     "to": {
@@ -175,11 +133,53 @@
                     "role_play": "last_ordered_at {0}"
                 },
                 {
+                    "unique_name": "order_items_dataset_Date Dimension_ordered_at",
+                    "from": {
+                        "dataset": "order_items_dataset",
+                        "join_columns": [
+                            "ordered_at"
+                        ]
+                    },
+                    "to": {
+                        "dimension": "Date Dimension",
+                        "level": "DayMonth"
+                    },
+                    "role_play": "ordered_at {0}"
+                },
+                {
+                    "unique_name": "orders_dataset_Date Dimension_ordered_at",
+                    "from": {
+                        "dataset": "orders_dataset",
+                        "join_columns": [
+                            "ordered_at"
+                        ]
+                    },
+                    "to": {
+                        "dimension": "Date Dimension",
+                        "level": "DayMonth"
+                    },
+                    "role_play": "ordered_at {0}"
+                },
+                {
+                    "unique_name": "orders_dataset_Date Dimension_ordered_at_test",
+                    "from": {
+                        "dataset": "orders_dataset",
+                        "join_columns": [
+                            "ordered_at_test"
+                        ]
+                    },
+                    "to": {
+                        "dimension": "Date Dimension",
+                        "level": "DayMonth"
+                    },
+                    "role_play": "ordered_at_test {0}"
+                },
+                {
                     "unique_name": "stg_locations_dataset_Date Dimension_opened_at",
                     "from": {
                         "dataset": "stg_locations_dataset",
                         "join_columns": [
-                            "OPENED_AT"
+                            "opened_at"
                         ]
                     },
                     "to": {
@@ -190,6 +190,34 @@
                 }
             ],
             "metrics": [
+                {
+                    "unique_name": "count_lifetime_orders",
+                    "folder": "Customers"
+                },
+                {
+                    "unique_name": "lifetime_spend_pretax",
+                    "folder": "Customers"
+                },
+                {
+                    "unique_name": "lifetime_spend",
+                    "folder": "Customers"
+                },
+                {
+                    "unique_name": "revenue",
+                    "folder": "Order_items"
+                },
+                {
+                    "unique_name": "food_revenue",
+                    "folder": "Order_items"
+                },
+                {
+                    "unique_name": "drink_revenue",
+                    "folder": "Order_items"
+                },
+                {
+                    "unique_name": "median_revenue",
+                    "folder": "Order_items"
+                },
                 {
                     "unique_name": "order_total",
                     "folder": "Orders"
@@ -215,52 +243,8 @@
                     "folder": "Orders"
                 },
                 {
-                    "unique_name": "revenue",
-                    "folder": "Order_items"
-                },
-                {
-                    "unique_name": "food_revenue",
-                    "folder": "Order_items"
-                },
-                {
-                    "unique_name": "drink_revenue",
-                    "folder": "Order_items"
-                },
-                {
-                    "unique_name": "median_revenue",
-                    "folder": "Order_items"
-                },
-                {
-                    "unique_name": "count_lifetime_orders",
-                    "folder": "Customers"
-                },
-                {
-                    "unique_name": "lifetime_spend_pretax",
-                    "folder": "Customers"
-                },
-                {
-                    "unique_name": "lifetime_spend",
-                    "folder": "Customers"
-                },
-                {
                     "unique_name": "average_tax_rate",
                     "folder": "Stg_locations"
-                },
-                {
-                    "unique_name": "orders",
-                    "folder": "Other Calculations"
-                },
-                {
-                    "unique_name": "orders_fill_nulls_with_zero",
-                    "folder": "Other Calculations"
-                },
-                {
-                    "unique_name": "twice_orders_fill_nulls_with_0",
-                    "folder": "Other Calculations"
-                },
-                {
-                    "unique_name": "orders_last_7_days",
-                    "folder": "Other Calculations"
                 },
                 {
                     "unique_name": "food_revenue_pct",
@@ -281,18 +265,34 @@
                 {
                     "unique_name": "cumulative_revenue",
                     "folder": "Other Calculations"
+                },
+                {
+                    "unique_name": "orders",
+                    "folder": "Other Calculations"
+                },
+                {
+                    "unique_name": "orders_fill_nulls_with_zero",
+                    "folder": "Other Calculations"
+                },
+                {
+                    "unique_name": "twice_orders_fill_nulls_with_0",
+                    "folder": "Other Calculations"
+                },
+                {
+                    "unique_name": "orders_last_7_days",
+                    "folder": "Other Calculations"
                 }
             ],
             "object_type": "model",
             "unique_name": "jaffle_shop",
             "dimensions": [
+                "Dim_customer_name",
+                "Dim_customer_type",
+                "Dim_is_food_item",
+                "Dim_is_drink_item",
                 "Dim_order_total_dim",
                 "Dim_is_food_order",
                 "Dim_is_drink_order",
-                "Dim_is_food_item",
-                "Dim_is_drink_item",
-                "Dim_customer_name",
-                "Dim_customer_type",
                 "Dim_location_name"
             ]
         }
@@ -300,75 +300,45 @@
     "_datasets": [
         {
             "object_type": "dataset",
-            "unique_name": "orders_dataset",
-            "label": "orders_dataset",
+            "unique_name": "customers_dataset",
+            "label": "customers_dataset",
             "columns": [
                 {
-                    "name": "ORDER_ID",
+                    "name": "customer",
+                    "data_type": "string",
+                    "sql": "customer_id"
+                },
+                {
+                    "name": "customer_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "LOCATION",
-                    "data_type": "string",
-                    "sql": "LOCATION_ID"
+                    "name": "customer_type",
+                    "data_type": "string"
                 },
                 {
-                    "name": "CUSTOMER",
-                    "data_type": "string",
-                    "sql": "CUSTOMER_ID"
-                },
-                {
-                    "name": "ORDERED_AT",
+                    "name": "first_ordered_at",
                     "data_type": "datetime"
                 },
                 {
-                    "name": "ORDERED_AT_TEST",
-                    "data_type": "datetime",
-                    "sql": "ORDERED_AT"
+                    "name": "last_ordered_at",
+                    "data_type": "datetime"
                 },
                 {
-                    "name": "ORDER_TOTAL_DIM",
-                    "data_type": "string",
-                    "sql": "ORDER_TOTAL"
+                    "name": "count_lifetime_orders",
+                    "data_type": "long"
                 },
                 {
-                    "name": "IS_FOOD_ORDER",
-                    "data_type": "boolean"
-                },
-                {
-                    "name": "IS_DRINK_ORDER",
-                    "data_type": "boolean"
-                },
-                {
-                    "name": "ORDER_TOTAL",
+                    "name": "lifetime_spend_pretax",
                     "data_type": "decimal"
                 },
                 {
-                    "name": "ORDER_COUNT",
-                    "data_type": "long",
-                    "sql": "1"
-                },
-                {
-                    "name": "TAX_PAID",
-                    "data_type": "decimal"
-                },
-                {
-                    "name": "CUSTOMERS_WITH_ORDERS",
-                    "data_type": "string",
-                    "sql": "CUSTOMER_ID"
-                },
-                {
-                    "name": "LOCATIONS_WITH_ORDERS",
-                    "data_type": "string",
-                    "sql": "LOCATION_ID"
-                },
-                {
-                    "name": "ORDER_COST",
+                    "name": "lifetime_spend",
                     "data_type": "decimal"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "table": "ORDERS"
+            "table": "customers"
         },
         {
             "object_type": "dataset",
@@ -376,97 +346,127 @@
             "label": "order_items_dataset",
             "columns": [
                 {
-                    "name": "ORDER_ITEM",
+                    "name": "order_item",
                     "data_type": "string",
-                    "sql": "ORDER_ITEM_ID"
+                    "sql": "order_item_id"
                 },
                 {
-                    "name": "ORDER_ID",
+                    "name": "order_id",
                     "data_type": "string"
                 },
                 {
-                    "name": "PRODUCT",
+                    "name": "product",
                     "data_type": "string",
-                    "sql": "PRODUCT_ID"
+                    "sql": "product_id"
                 },
                 {
-                    "name": "ORDERED_AT",
+                    "name": "ordered_at",
                     "data_type": "datetime",
-                    "sql": "CAST(ORDERED_AT AS DATETIME)"
+                    "sql": "cast(ordered_at as DATETIME)"
                 },
                 {
-                    "name": "IS_FOOD_ITEM",
+                    "name": "is_food_item",
                     "data_type": "boolean"
                 },
                 {
-                    "name": "IS_DRINK_ITEM",
+                    "name": "is_drink_item",
                     "data_type": "boolean"
                 },
                 {
-                    "name": "REVENUE",
+                    "name": "revenue",
                     "data_type": "decimal",
-                    "sql": "PRODUCT_PRICE"
+                    "sql": "product_price"
                 },
                 {
-                    "name": "FOOD_REVENUE",
+                    "name": "food_revenue",
                     "data_type": "decimal",
-                    "sql": "CASE WHEN IS_FOOD_ITEM = 1 THEN PRODUCT_PRICE ELSE 0 END"
+                    "sql": "case when is_food_item = 1 then product_price else 0 end"
                 },
                 {
-                    "name": "DRINK_REVENUE",
+                    "name": "drink_revenue",
                     "data_type": "decimal",
-                    "sql": "CASE WHEN IS_DRINK_ITEM = 1 THEN PRODUCT_PRICE ELSE 0 END"
+                    "sql": "case when is_drink_item = 1 then product_price else 0 end"
                 },
                 {
-                    "name": "MEDIAN_REVENUE",
+                    "name": "median_revenue",
                     "data_type": "decimal",
-                    "sql": "PRODUCT_PRICE"
+                    "sql": "product_price"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "table": "ORDER_ITEMS"
+            "table": "order_items"
         },
         {
             "object_type": "dataset",
-            "unique_name": "customers_dataset",
-            "label": "customers_dataset",
+            "unique_name": "orders_dataset",
+            "label": "orders_dataset",
             "columns": [
                 {
-                    "name": "CUSTOMER",
+                    "name": "order_id",
+                    "data_type": "string"
+                },
+                {
+                    "name": "location",
                     "data_type": "string",
-                    "sql": "CUSTOMER_ID"
+                    "sql": "location_id"
                 },
                 {
-                    "name": "CUSTOMER_NAME",
-                    "data_type": "string"
+                    "name": "customer",
+                    "data_type": "string",
+                    "sql": "customer_id"
                 },
                 {
-                    "name": "CUSTOMER_TYPE",
-                    "data_type": "string"
-                },
-                {
-                    "name": "FIRST_ORDERED_AT",
+                    "name": "ordered_at",
                     "data_type": "datetime"
                 },
                 {
-                    "name": "LAST_ORDERED_AT",
-                    "data_type": "datetime"
+                    "name": "ordered_at_test",
+                    "data_type": "datetime",
+                    "sql": "ordered_at"
                 },
                 {
-                    "name": "COUNT_LIFETIME_ORDERS",
-                    "data_type": "long"
+                    "name": "order_total_dim",
+                    "data_type": "string",
+                    "sql": "order_total"
                 },
                 {
-                    "name": "LIFETIME_SPEND_PRETAX",
+                    "name": "is_food_order",
+                    "data_type": "boolean"
+                },
+                {
+                    "name": "is_drink_order",
+                    "data_type": "boolean"
+                },
+                {
+                    "name": "order_total",
                     "data_type": "decimal"
                 },
                 {
-                    "name": "LIFETIME_SPEND",
+                    "name": "order_count",
+                    "data_type": "long",
+                    "sql": "1"
+                },
+                {
+                    "name": "tax_paid",
+                    "data_type": "decimal"
+                },
+                {
+                    "name": "customers_with_orders",
+                    "data_type": "string",
+                    "sql": "customer_id"
+                },
+                {
+                    "name": "locations_with_orders",
+                    "data_type": "string",
+                    "sql": "location_id"
+                },
+                {
+                    "name": "order_cost",
                     "data_type": "decimal"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "table": "CUSTOMERS"
+            "table": "orders"
         },
         {
             "object_type": "dataset",
@@ -474,26 +474,26 @@
             "label": "stg_locations_dataset",
             "columns": [
                 {
-                    "name": "LOCATION",
+                    "name": "location",
                     "data_type": "string",
-                    "sql": "LOCATION_ID"
+                    "sql": "location_id"
                 },
                 {
-                    "name": "LOCATION_NAME",
+                    "name": "location_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "OPENED_AT",
+                    "name": "opened_at",
                     "data_type": "datetime"
                 },
                 {
-                    "name": "AVERAGE_TAX_RATE",
+                    "name": "average_tax_rate",
                     "data_type": "decimal",
-                    "sql": "TAX_RATE"
+                    "sql": "tax_rate"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "table": "STG_LOCATIONS"
+            "table": "stg_locations"
         },
         {
             "object_type": "dataset",
@@ -501,37 +501,37 @@
             "label": "stg_products_dataset",
             "columns": [
                 {
-                    "name": "PRODUCT",
+                    "name": "product",
                     "data_type": "string",
-                    "sql": "PRODUCT_ID"
+                    "sql": "product_id"
                 },
                 {
-                    "name": "PRODUCT_NAME",
+                    "name": "product_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "PRODUCT_TYPE",
+                    "name": "product_type",
                     "data_type": "string"
                 },
                 {
-                    "name": "PRODUCT_DESCRIPTION",
+                    "name": "product_description",
                     "data_type": "string"
                 },
                 {
-                    "name": "IS_FOOD_ITEM",
+                    "name": "is_food_item",
                     "data_type": "boolean"
                 },
                 {
-                    "name": "IS_DRINK_ITEM",
+                    "name": "is_drink_item",
                     "data_type": "boolean"
                 },
                 {
-                    "name": "PRODUCT_PRICE",
+                    "name": "product_price",
                     "data_type": "string"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "table": "STG_PRODUCTS"
+            "table": "stg_products"
         },
         {
             "object_type": "dataset",
@@ -539,104 +539,104 @@
             "label": "dim_time_dataset",
             "columns": [
                 {
-                    "name": "NAME",
+                    "name": "name",
                     "data_type": "string"
                 },
                 {
-                    "name": "PK_DATE",
+                    "name": "pk_date",
                     "data_type": "datetime"
                 },
                 {
-                    "name": "DATEKEY",
+                    "name": "datekey",
                     "data_type": "int"
                 },
                 {
-                    "name": "DATE_NAME",
+                    "name": "date_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "YEAR",
+                    "name": "year",
                     "data_type": "string"
                 },
                 {
-                    "name": "YEAR_NAME",
+                    "name": "year_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "HALF_YEAR",
+                    "name": "half_year",
                     "data_type": "date"
                 },
                 {
-                    "name": "HALF_YEAR_NAME",
+                    "name": "half_year_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "QUARTER",
+                    "name": "quarter",
                     "data_type": "date"
                 },
                 {
-                    "name": "QUARTER_NAME",
+                    "name": "quarter_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "MONTH",
+                    "name": "month",
                     "data_type": "date"
                 },
                 {
-                    "name": "MONTH_NAME",
+                    "name": "month_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "WEEK",
+                    "name": "week",
                     "data_type": "date"
                 },
                 {
-                    "name": "WEEK_NAME",
+                    "name": "week_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "DAY_OF_YEAR",
+                    "name": "day_of_year",
                     "data_type": "int"
                 },
                 {
-                    "name": "DAY_OF_YEAR_NAME",
+                    "name": "day_of_year_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "DAY_OF_WEEK",
+                    "name": "day_of_week",
                     "data_type": "int"
                 },
                 {
-                    "name": "DAY_OF_WEEK_NAME",
+                    "name": "day_of_week_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "WEEK_OF_YEAR",
+                    "name": "week_of_year",
                     "data_type": "int"
                 },
                 {
-                    "name": "WEEK_OF_YEAR_NAME",
+                    "name": "week_of_year_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "MONTH_OF_YEAR",
+                    "name": "month_of_year",
                     "data_type": "int"
                 },
                 {
-                    "name": "MONTH_OF_YEAR_NAME",
+                    "name": "month_of_year_name",
                     "data_type": "string"
                 },
                 {
-                    "name": "QUARTER_OF_YEAR",
+                    "name": "quarter_of_year",
                     "data_type": "int"
                 },
                 {
-                    "name": "QUARTER_OF_YEAR_NAME",
+                    "name": "quarter_of_year_name",
                     "data_type": "string"
                 }
             ],
             "connection_id": "dbt_connection_BigQuery",
-            "sql": "SELECT TIMESTAMP(date_day) as pk_date, cast(FORMAT_DATE(\"%Y%m%d\", date_day) as decimal) as datekey, FORMAT_DATE('%A, %B %d, %Y', date_day) as date_name, CAST(EXTRACT(YEAR from date_day) AS STRING) as year, concat(\"Calendar \",FORMAT_DATE('%Y', date_day)) as year_name, IF(EXTRACT(QUARTER FROM date_day) < 3, DATE_TRUNC(date_day,YEAR), DATE_ADD(DATE_TRUNC(date_day,YEAR), INTERVAL 2 QUARTER)) as half_year, IF(EXTRACT(QUARTER FROM date_day) < 3, concat(\"Semester 1, \",FORMAT_DATE('%Y', date_day)), concat(\"Semester 2, \", FORMAT_DATE('%Y', date_day))) as half_year_name, DATE_TRUNC(date_day, QUARTER) as quarter, FORMAT_DATE('Quarter %Q, %Y', date_day) as quarter_name, DATE_TRUNC(date_day, MONTH) as month, FORMAT_DATE('%B %Y', date_day) as month_name, DATE_TRUNC(date_day, WEEK) as week, concat(\"Week \", EXTRACT(WEEK from date_day), FORMAT_DATE(', %Y', date_day)) as week_name, EXTRACT(DAYOFYEAR from date_day) as day_of_year, concat(\"Day \", EXTRACT(DAYOFYEAR from date_day)) as day_of_year_name, EXTRACT(DAYOFWEEK from date_day) as day_of_week, FORMAT_DATE('%a', date_day) as day_of_week_name, EXTRACT(WEEK from date_day) as week_of_year, concat(\"Week \", EXTRACT(WEEK from date_day)) as week_of_year_name, EXTRACT(MONTH from date_day) as month_of_year, FORMAT_DATE('%B', date_day) as month_of_year_name, EXTRACT(QUARTER from date_day) as quarter_of_year, concat(\"Quarter \", EXTRACT(QUARTER from date_day)) as quarter_of_year_name    FROM DBT_DWOOD.metricflow_time_spine"
+            "sql": "SELECT TIMESTAMP(date_day) as pk_date, cast(FORMAT_DATE(\"%Y%m%d\", date_day) as decimal) as datekey, FORMAT_DATE('%A, %B %d, %Y', date_day) as date_name, CAST(EXTRACT(YEAR from date_day) AS STRING) as year, concat(\"Calendar \",FORMAT_DATE('%Y', date_day)) as year_name, IF(EXTRACT(QUARTER FROM date_day) < 3, DATE_TRUNC(date_day,YEAR), DATE_ADD(DATE_TRUNC(date_day,YEAR), INTERVAL 2 QUARTER)) as half_year, IF(EXTRACT(QUARTER FROM date_day) < 3, concat(\"Semester 1, \",FORMAT_DATE('%Y', date_day)), concat(\"Semester 2, \", FORMAT_DATE('%Y', date_day))) as half_year_name, DATE_TRUNC(date_day, QUARTER) as quarter, FORMAT_DATE('Quarter %Q, %Y', date_day) as quarter_name, DATE_TRUNC(date_day, MONTH) as month, FORMAT_DATE('%B %Y', date_day) as month_name, DATE_TRUNC(date_day, WEEK) as week, concat(\"Week \", EXTRACT(WEEK from date_day), FORMAT_DATE(', %Y', date_day)) as week_name, EXTRACT(DAYOFYEAR from date_day) as day_of_year, concat(\"Day \", EXTRACT(DAYOFYEAR from date_day)) as day_of_year_name, EXTRACT(DAYOFWEEK from date_day) as day_of_week, FORMAT_DATE('%a', date_day) as day_of_week_name, EXTRACT(WEEK from date_day) as week_of_year, concat(\"Week \", EXTRACT(WEEK from date_day)) as week_of_year_name, EXTRACT(MONTH from date_day) as month_of_year, FORMAT_DATE('%B', date_day) as month_of_year_name, EXTRACT(QUARTER from date_day) as quarter_of_year, concat(\"Quarter \", EXTRACT(QUARTER from date_day)) as quarter_of_year_name    FROM dbt_dwood.metricflow_time_spine"
         }
     ],
     "_dimensions": [
@@ -645,44 +645,44 @@
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "YEAR"
+                        "year"
                     ],
                     "label": "Year",
-                    "name_column": "YEAR_NAME",
+                    "name_column": "year_name",
                     "unique_name": "YearMonth",
                     "description": "Year level of the Standard Calendar Month Hierarchy"
                 },
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "QUARTER"
+                        "quarter"
                     ],
                     "label": "Quarter",
-                    "name_column": "QUARTER_NAME",
+                    "name_column": "quarter_name",
                     "unique_name": "Quarter",
-                    "sort_column": "QUARTER"
+                    "sort_column": "quarter"
                 },
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "MONTH"
+                        "month"
                     ],
                     "label": "Month",
-                    "name_column": "MONTH_NAME",
+                    "name_column": "month_name",
                     "unique_name": "Month1",
-                    "sort_column": "MONTH"
+                    "sort_column": "month"
                 },
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "PK_DATE"
+                        "pk_date"
                     ],
                     "label": "Day",
-                    "name_column": "DATE_NAME",
+                    "name_column": "date_name",
                     "unique_name": "DayMonth",
                     "description": "Day level of standard calendar Month Hierarchy",
                     "is_unique_key": true,
-                    "sort_column": "PK_DATE",
+                    "sort_column": "pk_date",
                     "allowed_calcs_for_dma": [
                         "Siblings",
                         "ParallelPeriod",
@@ -694,32 +694,32 @@
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "YEAR"
+                        "year"
                     ],
                     "label": "Year",
-                    "name_column": "YEAR_NAME",
+                    "name_column": "year_name",
                     "unique_name": "YearWeek",
-                    "sort_column": "YEAR"
+                    "sort_column": "year"
                 },
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "WEEK"
+                        "week"
                     ],
                     "label": "Week",
-                    "name_column": "WEEK_NAME",
+                    "name_column": "week_name",
                     "unique_name": "Week",
-                    "sort_column": "WEEK"
+                    "sort_column": "week"
                 },
                 {
                     "dataset": "dim_time_dataset",
                     "key_columns": [
-                        "PK_DATE"
+                        "pk_date"
                     ],
                     "label": "Day",
-                    "name_column": "DATE_NAME",
+                    "name_column": "date_name",
                     "unique_name": "DayWeek",
-                    "sort_column": "PK_DATE"
+                    "sort_column": "pk_date"
                 }
             ],
             "hierarchies": [
@@ -741,11 +741,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "QUARTER_OF_YEAR",
+                                    "name_column": "quarter_of_year",
                                     "key_columns": [
-                                        "QUARTER_OF_YEAR"
+                                        "quarter_of_year"
                                     ],
-                                    "sort_column": "QUARTER_OF_YEAR"
+                                    "sort_column": "quarter_of_year"
                                 }
                             ]
                         },
@@ -758,9 +758,9 @@
                                     "label": "Month Start",
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "MONTH",
+                                    "name_column": "month",
                                     "key_columns": [
-                                        "MONTH"
+                                        "month"
                                     ]
                                 }
                             ]
@@ -775,11 +775,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "DAY_OF_WEEK",
+                                    "name_column": "day_of_week",
                                     "key_columns": [
-                                        "DAY_OF_WEEK"
+                                        "day_of_week"
                                     ],
-                                    "sort_column": "DAY_OF_WEEK"
+                                    "sort_column": "day_of_week"
                                 },
                                 {
                                     "unique_name": "d_day_of_week_name",
@@ -787,11 +787,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "DAY_OF_WEEK_NAME",
+                                    "name_column": "day_of_week_name",
                                     "key_columns": [
-                                        "DAY_OF_WEEK_NAME"
+                                        "day_of_week_name"
                                     ],
-                                    "sort_column": "DAY_OF_WEEK_NAME"
+                                    "sort_column": "day_of_week_name"
                                 },
                                 {
                                     "unique_name": "Day_Date",
@@ -799,11 +799,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "PK_DATE",
+                                    "name_column": "pk_date",
                                     "key_columns": [
-                                        "PK_DATE"
+                                        "pk_date"
                                     ],
-                                    "sort_column": "PK_DATE"
+                                    "sort_column": "pk_date"
                                 },
                                 {
                                     "unique_name": "w_day_of_week_name",
@@ -811,11 +811,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "DAY_OF_WEEK_NAME",
+                                    "name_column": "day_of_week_name",
                                     "key_columns": [
-                                        "DAY_OF_WEEK_NAME"
+                                        "day_of_week_name"
                                     ],
-                                    "sort_column": "DAY_OF_WEEK_NAME"
+                                    "sort_column": "day_of_week_name"
                                 },
                                 {
                                     "unique_name": "w_day_of_week_number",
@@ -823,11 +823,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "DAY_OF_WEEK",
+                                    "name_column": "day_of_week",
                                     "key_columns": [
-                                        "DAY_OF_WEEK"
+                                        "day_of_week"
                                     ],
-                                    "sort_column": "DAY_OF_WEEK"
+                                    "sort_column": "day_of_week"
                                 },
                                 {
                                     "unique_name": "W_Day_Date",
@@ -835,11 +835,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "PK_DATE",
+                                    "name_column": "pk_date",
                                     "key_columns": [
-                                        "PK_DATE"
+                                        "pk_date"
                                     ],
-                                    "sort_column": "PK_DATE"
+                                    "sort_column": "pk_date"
                                 }
                             ]
                         }
@@ -866,11 +866,11 @@
                                     "is_hidden": false,
                                     "folder": "Date Attributes",
                                     "dataset": "dim_time_dataset",
-                                    "name_column": "WEEK_OF_YEAR",
+                                    "name_column": "week_of_year",
                                     "key_columns": [
-                                        "WEEK_OF_YEAR"
+                                        "week_of_year"
                                     ],
-                                    "sort_column": "WEEK_OF_YEAR"
+                                    "sort_column": "week_of_year"
                                 }
                             ]
                         },
@@ -892,70 +892,12 @@
         {
             "level_attributes": [
                 {
-                    "dataset": "stg_locations_dataset",
-                    "key_columns": [
-                        "LOCATION"
-                    ],
-                    "label": "location",
-                    "name_column": "LOCATION",
-                    "unique_name": "location"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "Stg_locations Hierarchy",
-                    "label": "Stg_locations Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "location"
-                        }
-                    ],
-                    "folder": "Stg_locations"
-                }
-            ],
-            "label": "Dim stg_locations",
-            "object_type": "dimension",
-            "unique_name": "Dim_stg_locations",
-            "description": "This dimension was generated from a relationship to dbt model 'stg_locations'"
-        },
-        {
-            "level_attributes": [
-                {
-                    "dataset": "customers_dataset",
-                    "key_columns": [
-                        "CUSTOMER"
-                    ],
-                    "label": "customer",
-                    "name_column": "CUSTOMER",
-                    "unique_name": "customer"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "Customers Hierarchy",
-                    "label": "Customers Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "customer"
-                        }
-                    ],
-                    "folder": "Customers"
-                }
-            ],
-            "label": "Dim customers",
-            "object_type": "dimension",
-            "unique_name": "Dim_customers",
-            "description": "This dimension was generated from a relationship to dbt model 'customers'"
-        },
-        {
-            "level_attributes": [
-                {
                     "dataset": "orders_dataset",
                     "key_columns": [
-                        "ORDER_ID"
+                        "order_id"
                     ],
                     "label": "order_id",
-                    "name_column": "ORDER_ID",
+                    "name_column": "order_id",
                     "unique_name": "order_id"
                 }
             ],
@@ -981,10 +923,10 @@
                 {
                     "dataset": "stg_products_dataset",
                     "key_columns": [
-                        "PRODUCT"
+                        "product"
                     ],
                     "label": "product",
-                    "name_column": "PRODUCT",
+                    "name_column": "product",
                     "unique_name": "product"
                 }
             ],
@@ -1008,157 +950,70 @@
         {
             "level_attributes": [
                 {
-                    "dataset": "orders_dataset",
+                    "dataset": "stg_locations_dataset",
                     "key_columns": [
-                        "ORDER_TOTAL"
+                        "location"
                     ],
-                    "label": "order_total_dim",
-                    "name_column": "ORDER_TOTAL",
-                    "unique_name": "order_total_dim"
+                    "label": "location",
+                    "name_column": "location",
+                    "unique_name": "location"
                 }
             ],
             "hierarchies": [
                 {
-                    "unique_name": "order_total_dim_Hierarchy",
-                    "label": "order_total_dim_Hierarchy",
+                    "unique_name": "Stg_locations Hierarchy",
+                    "label": "Stg_locations Hierarchy",
                     "levels": [
                         {
-                            "unique_name": "order_total_dim"
+                            "unique_name": "location"
                         }
                     ],
-                    "folder": "Orders"
+                    "folder": "Stg_locations"
                 }
             ],
-            "label": "Dim order_total_dim",
+            "label": "Dim stg_locations",
             "object_type": "dimension",
-            "unique_name": "Dim_order_total_dim",
-            "is_degenerate": true
-        },
-        {
-            "level_attributes": [
-                {
-                    "dataset": "orders_dataset",
-                    "key_columns": [
-                        "IS_FOOD_ORDER"
-                    ],
-                    "label": "is_food_order",
-                    "name_column": "IS_FOOD_ORDER",
-                    "unique_name": "is_food_order"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "is_food_order_Hierarchy",
-                    "label": "is_food_order_Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "is_food_order"
-                        }
-                    ],
-                    "folder": "Orders"
-                }
-            ],
-            "label": "Dim is_food_order",
-            "object_type": "dimension",
-            "unique_name": "Dim_is_food_order",
-            "is_degenerate": true
-        },
-        {
-            "level_attributes": [
-                {
-                    "dataset": "orders_dataset",
-                    "key_columns": [
-                        "IS_DRINK_ORDER"
-                    ],
-                    "label": "is_drink_order",
-                    "name_column": "IS_DRINK_ORDER",
-                    "unique_name": "is_drink_order"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "is_drink_order_Hierarchy",
-                    "label": "is_drink_order_Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "is_drink_order"
-                        }
-                    ],
-                    "folder": "Orders"
-                }
-            ],
-            "label": "Dim is_drink_order",
-            "object_type": "dimension",
-            "unique_name": "Dim_is_drink_order",
-            "is_degenerate": true
-        },
-        {
-            "level_attributes": [
-                {
-                    "dataset": "order_items_dataset",
-                    "key_columns": [
-                        "IS_FOOD_ITEM"
-                    ],
-                    "label": "is_food_item",
-                    "name_column": "IS_FOOD_ITEM",
-                    "unique_name": "is_food_item"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "is_food_item_Hierarchy",
-                    "label": "is_food_item_Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "is_food_item"
-                        }
-                    ],
-                    "folder": "Order_items"
-                }
-            ],
-            "label": "Dim is_food_item",
-            "object_type": "dimension",
-            "unique_name": "Dim_is_food_item",
-            "is_degenerate": true
-        },
-        {
-            "level_attributes": [
-                {
-                    "dataset": "order_items_dataset",
-                    "key_columns": [
-                        "IS_DRINK_ITEM"
-                    ],
-                    "label": "is_drink_item",
-                    "name_column": "IS_DRINK_ITEM",
-                    "unique_name": "is_drink_item"
-                }
-            ],
-            "hierarchies": [
-                {
-                    "unique_name": "is_drink_item_Hierarchy",
-                    "label": "is_drink_item_Hierarchy",
-                    "levels": [
-                        {
-                            "unique_name": "is_drink_item"
-                        }
-                    ],
-                    "folder": "Order_items"
-                }
-            ],
-            "label": "Dim is_drink_item",
-            "object_type": "dimension",
-            "unique_name": "Dim_is_drink_item",
-            "is_degenerate": true
+            "unique_name": "Dim_stg_locations",
+            "description": "This dimension was generated from a relationship to dbt model 'stg_locations'"
         },
         {
             "level_attributes": [
                 {
                     "dataset": "customers_dataset",
                     "key_columns": [
-                        "CUSTOMER_NAME"
+                        "customer"
+                    ],
+                    "label": "customer",
+                    "name_column": "customer",
+                    "unique_name": "customer"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "Customers Hierarchy",
+                    "label": "Customers Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "customer"
+                        }
+                    ],
+                    "folder": "Customers"
+                }
+            ],
+            "label": "Dim customers",
+            "object_type": "dimension",
+            "unique_name": "Dim_customers",
+            "description": "This dimension was generated from a relationship to dbt model 'customers'"
+        },
+        {
+            "level_attributes": [
+                {
+                    "dataset": "customers_dataset",
+                    "key_columns": [
+                        "customer_name"
                     ],
                     "label": "customer_name",
-                    "name_column": "CUSTOMER_NAME",
+                    "name_column": "customer_name",
                     "unique_name": "customer_name"
                 }
             ],
@@ -1184,10 +1039,10 @@
                 {
                     "dataset": "customers_dataset",
                     "key_columns": [
-                        "CUSTOMER_TYPE"
+                        "customer_type"
                     ],
                     "label": "customer_type",
-                    "name_column": "CUSTOMER_TYPE",
+                    "name_column": "customer_type",
                     "unique_name": "customer_type"
                 }
             ],
@@ -1211,12 +1066,157 @@
         {
             "level_attributes": [
                 {
+                    "dataset": "order_items_dataset",
+                    "key_columns": [
+                        "is_food_item"
+                    ],
+                    "label": "is_food_item",
+                    "name_column": "is_food_item",
+                    "unique_name": "is_food_item"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "is_food_item_Hierarchy",
+                    "label": "is_food_item_Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "is_food_item"
+                        }
+                    ],
+                    "folder": "Order_items"
+                }
+            ],
+            "label": "Dim is_food_item",
+            "object_type": "dimension",
+            "unique_name": "Dim_is_food_item",
+            "is_degenerate": true
+        },
+        {
+            "level_attributes": [
+                {
+                    "dataset": "order_items_dataset",
+                    "key_columns": [
+                        "is_drink_item"
+                    ],
+                    "label": "is_drink_item",
+                    "name_column": "is_drink_item",
+                    "unique_name": "is_drink_item"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "is_drink_item_Hierarchy",
+                    "label": "is_drink_item_Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "is_drink_item"
+                        }
+                    ],
+                    "folder": "Order_items"
+                }
+            ],
+            "label": "Dim is_drink_item",
+            "object_type": "dimension",
+            "unique_name": "Dim_is_drink_item",
+            "is_degenerate": true
+        },
+        {
+            "level_attributes": [
+                {
+                    "dataset": "orders_dataset",
+                    "key_columns": [
+                        "order_total"
+                    ],
+                    "label": "order_total_dim",
+                    "name_column": "order_total",
+                    "unique_name": "order_total_dim"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "order_total_dim_Hierarchy",
+                    "label": "order_total_dim_Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "order_total_dim"
+                        }
+                    ],
+                    "folder": "Orders"
+                }
+            ],
+            "label": "Dim order_total_dim",
+            "object_type": "dimension",
+            "unique_name": "Dim_order_total_dim",
+            "is_degenerate": true
+        },
+        {
+            "level_attributes": [
+                {
+                    "dataset": "orders_dataset",
+                    "key_columns": [
+                        "is_food_order"
+                    ],
+                    "label": "is_food_order",
+                    "name_column": "is_food_order",
+                    "unique_name": "is_food_order"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "is_food_order_Hierarchy",
+                    "label": "is_food_order_Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "is_food_order"
+                        }
+                    ],
+                    "folder": "Orders"
+                }
+            ],
+            "label": "Dim is_food_order",
+            "object_type": "dimension",
+            "unique_name": "Dim_is_food_order",
+            "is_degenerate": true
+        },
+        {
+            "level_attributes": [
+                {
+                    "dataset": "orders_dataset",
+                    "key_columns": [
+                        "is_drink_order"
+                    ],
+                    "label": "is_drink_order",
+                    "name_column": "is_drink_order",
+                    "unique_name": "is_drink_order"
+                }
+            ],
+            "hierarchies": [
+                {
+                    "unique_name": "is_drink_order_Hierarchy",
+                    "label": "is_drink_order_Hierarchy",
+                    "levels": [
+                        {
+                            "unique_name": "is_drink_order"
+                        }
+                    ],
+                    "folder": "Orders"
+                }
+            ],
+            "label": "Dim is_drink_order",
+            "object_type": "dimension",
+            "unique_name": "Dim_is_drink_order",
+            "is_degenerate": true
+        },
+        {
+            "level_attributes": [
+                {
                     "dataset": "stg_locations_dataset",
                     "key_columns": [
-                        "LOCATION_NAME"
+                        "location_name"
                     ],
                     "label": "location_name",
-                    "name_column": "LOCATION_NAME",
+                    "name_column": "location_name",
                     "unique_name": "location_name"
                 }
             ],
@@ -1240,119 +1240,10 @@
     ],
     "_measures": [
         {
-            "label": "order_total",
-            "unique_name": "order_total",
-            "object_type": "metric",
-            "column": "ORDER_TOTAL",
-            "dataset": "orders_dataset",
-            "calculation_method": "sum",
-            "folder": "Orders",
-            "description": "The total amount for each order including taxes.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "order_count",
-            "unique_name": "order_count",
-            "object_type": "metric",
-            "column": "ORDER_COUNT",
-            "dataset": "orders_dataset",
-            "calculation_method": "sum",
-            "folder": "Orders",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "tax_paid",
-            "unique_name": "tax_paid",
-            "object_type": "metric",
-            "column": "TAX_PAID",
-            "dataset": "orders_dataset",
-            "calculation_method": "sum",
-            "folder": "Orders",
-            "description": "The total tax paid on each order.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "customers_with_orders",
-            "unique_name": "customers_with_orders",
-            "object_type": "metric",
-            "column": "CUSTOMERS_WITH_ORDERS",
-            "dataset": "orders_dataset",
-            "calculation_method": "count distinct",
-            "folder": "Orders",
-            "description": "Distinct count of customers placing orders",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "locations_with_orders",
-            "unique_name": "locations_with_orders",
-            "object_type": "metric",
-            "column": "LOCATIONS_WITH_ORDERS",
-            "dataset": "orders_dataset",
-            "calculation_method": "count distinct",
-            "folder": "Orders",
-            "description": "Distinct count of locations with order",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "order_cost",
-            "unique_name": "order_cost",
-            "object_type": "metric",
-            "column": "ORDER_COST",
-            "dataset": "orders_dataset",
-            "calculation_method": "sum",
-            "folder": "Orders",
-            "description": "The cost for each order item. Cost is calculated as a sum of the supply cost for each order item.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "revenue",
-            "unique_name": "revenue",
-            "object_type": "metric",
-            "column": "REVENUE",
-            "dataset": "order_items_dataset",
-            "calculation_method": "sum",
-            "folder": "Order_items",
-            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "food_revenue",
-            "unique_name": "food_revenue",
-            "object_type": "metric",
-            "column": "FOOD_REVENUE",
-            "dataset": "order_items_dataset",
-            "calculation_method": "sum",
-            "folder": "Order_items",
-            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "drink_revenue",
-            "unique_name": "drink_revenue",
-            "object_type": "metric",
-            "column": "DRINK_REVENUE",
-            "dataset": "order_items_dataset",
-            "calculation_method": "sum",
-            "folder": "Order_items",
-            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
-            "label": "median_revenue",
-            "unique_name": "median_revenue",
-            "object_type": "metric",
-            "column": "MEDIAN_REVENUE",
-            "dataset": "order_items_dataset",
-            "calculation_method": "average",
-            "folder": "Order_items",
-            "description": "The median revenue generated for each order item.",
-            "unrelated_dimensions_handling": "repeat"
-        },
-        {
             "label": "count_lifetime_orders",
             "unique_name": "count_lifetime_orders",
             "object_type": "metric",
-            "column": "COUNT_LIFETIME_ORDERS",
+            "column": "count_lifetime_orders",
             "dataset": "customers_dataset",
             "calculation_method": "sum",
             "folder": "Customers",
@@ -1363,7 +1254,7 @@
             "label": "lifetime_spend_pretax",
             "unique_name": "lifetime_spend_pretax",
             "object_type": "metric",
-            "column": "LIFETIME_SPEND_PRETAX",
+            "column": "lifetime_spend_pretax",
             "dataset": "customers_dataset",
             "calculation_method": "sum",
             "folder": "Customers",
@@ -1374,7 +1265,7 @@
             "label": "lifetime_spend",
             "unique_name": "lifetime_spend",
             "object_type": "metric",
-            "column": "LIFETIME_SPEND",
+            "column": "lifetime_spend",
             "dataset": "customers_dataset",
             "calculation_method": "sum",
             "folder": "Customers",
@@ -1382,10 +1273,119 @@
             "unrelated_dimensions_handling": "repeat"
         },
         {
+            "label": "revenue",
+            "unique_name": "revenue",
+            "object_type": "metric",
+            "column": "revenue",
+            "dataset": "order_items_dataset",
+            "calculation_method": "sum",
+            "folder": "Order_items",
+            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "food_revenue",
+            "unique_name": "food_revenue",
+            "object_type": "metric",
+            "column": "food_revenue",
+            "dataset": "order_items_dataset",
+            "calculation_method": "sum",
+            "folder": "Order_items",
+            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "drink_revenue",
+            "unique_name": "drink_revenue",
+            "object_type": "metric",
+            "column": "drink_revenue",
+            "dataset": "order_items_dataset",
+            "calculation_method": "sum",
+            "folder": "Order_items",
+            "description": "The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "median_revenue",
+            "unique_name": "median_revenue",
+            "object_type": "metric",
+            "column": "median_revenue",
+            "dataset": "order_items_dataset",
+            "calculation_method": "average",
+            "folder": "Order_items",
+            "description": "The median revenue generated for each order item.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "order_total",
+            "unique_name": "order_total",
+            "object_type": "metric",
+            "column": "order_total",
+            "dataset": "orders_dataset",
+            "calculation_method": "sum",
+            "folder": "Orders",
+            "description": "The total amount for each order including taxes.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "order_count",
+            "unique_name": "order_count",
+            "object_type": "metric",
+            "column": "order_count",
+            "dataset": "orders_dataset",
+            "calculation_method": "sum",
+            "folder": "Orders",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "tax_paid",
+            "unique_name": "tax_paid",
+            "object_type": "metric",
+            "column": "tax_paid",
+            "dataset": "orders_dataset",
+            "calculation_method": "sum",
+            "folder": "Orders",
+            "description": "The total tax paid on each order.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "customers_with_orders",
+            "unique_name": "customers_with_orders",
+            "object_type": "metric",
+            "column": "customers_with_orders",
+            "dataset": "orders_dataset",
+            "calculation_method": "count distinct",
+            "folder": "Orders",
+            "description": "Distinct count of customers placing orders",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "locations_with_orders",
+            "unique_name": "locations_with_orders",
+            "object_type": "metric",
+            "column": "locations_with_orders",
+            "dataset": "orders_dataset",
+            "calculation_method": "count distinct",
+            "folder": "Orders",
+            "description": "Distinct count of locations with order",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
+            "label": "order_cost",
+            "unique_name": "order_cost",
+            "object_type": "metric",
+            "column": "order_cost",
+            "dataset": "orders_dataset",
+            "calculation_method": "sum",
+            "folder": "Orders",
+            "description": "The cost for each order item. Cost is calculated as a sum of the supply cost for each order item.",
+            "unrelated_dimensions_handling": "repeat"
+        },
+        {
             "label": "average_tax_rate",
             "unique_name": "average_tax_rate",
             "object_type": "metric",
-            "column": "AVERAGE_TAX_RATE",
+            "column": "average_tax_rate",
             "dataset": "stg_locations_dataset",
             "calculation_method": "average",
             "folder": "Stg_locations",
@@ -1396,7 +1396,7 @@
             "label": "orders",
             "unique_name": "orders",
             "object_type": "metric",
-            "column": "ORDER_COUNT",
+            "column": "order_count",
             "dataset": "orders_dataset",
             "calculation_method": "sum",
             "folder": "Orders",
@@ -1407,7 +1407,7 @@
             "label": "orders_fill_nulls_with_zero",
             "unique_name": "orders_fill_nulls_with_zero",
             "object_type": "metric",
-            "column": "ORDER_COUNT",
+            "column": "order_count",
             "dataset": "orders_dataset",
             "calculation_method": "sum",
             "folder": "Orders",
@@ -1416,22 +1416,6 @@
         }
     ],
     "_measuresCalculated": [
-        {
-            "label": "twice_orders_fill_nulls_with_0",
-            "unique_name": "twice_orders_fill_nulls_with_0",
-            "object_type": "metric_calc",
-            "expression": "2 * [Measures].[orders_fill_nulls_with_zero]",
-            "folder": "Other Calculations",
-            "description": "Example derived metric."
-        },
-        {
-            "label": "orders_last_7_days",
-            "unique_name": "orders_last_7_days",
-            "object_type": "metric_calc",
-            "expression": "CASE WHEN ISEMPTY([Measures].[order_count]) THEN NULL ELSE Aggregate(PeriodsToDate([ordered_at Date Dimension].[ordered_at Date Week Hierarchy].[ordered_at YearWeek], [ordered_at Date Dimension].[ordered_at Date Week Hierarchy].CurrentMember), [Measures].[order_count]) END",
-            "folder": "Orders",
-            "description": "Count of orders."
-        },
         {
             "label": "food_revenue_pct",
             "unique_name": "food_revenue_pct",
@@ -1471,13 +1455,29 @@
             "expression": "CASE WHEN ISEMPTY([Measures].[revenue]) THEN NULL ELSE Aggregate(PeriodsToDate([ordered_at Date Dimension].[ordered_at Date Week Hierarchy].[ordered_at YearWeek], [ordered_at Date Dimension].[ordered_at Date Week Hierarchy].CurrentMember), [Measures].[revenue]) END",
             "folder": "Order_items",
             "description": "The cumulative revenue for all orders."
+        },
+        {
+            "label": "twice_orders_fill_nulls_with_0",
+            "unique_name": "twice_orders_fill_nulls_with_0",
+            "object_type": "metric_calc",
+            "expression": "2 * [Measures].[orders_fill_nulls_with_zero]",
+            "folder": "Other Calculations",
+            "description": "Example derived metric."
+        },
+        {
+            "label": "orders_last_7_days",
+            "unique_name": "orders_last_7_days",
+            "object_type": "metric_calc",
+            "expression": "CASE WHEN ISEMPTY([Measures].[order_count]) THEN NULL ELSE Aggregate(PeriodsToDate([ordered_at Date Dimension].[ordered_at Date Week Hierarchy].[ordered_at YearWeek], [ordered_at Date Dimension].[ordered_at Date Week Hierarchy].CurrentMember), [Measures].[order_count]) END",
+            "folder": "Orders",
+            "description": "Count of orders."
         }
     ],
     "_catalog": {
         "as_version": 1,
         "label": "jaffle_shop",
         "object_type": "catalog",
-        "unique_name": "jaffle_shop.catalog",
+        "unique_name": "jaffle_shop_bigquery",
         "aggressive_agg_promotion": false,
         "build_speculative_aggs": false
     }
