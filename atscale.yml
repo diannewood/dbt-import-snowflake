@@ -1,4 +1,4 @@
-unique_name: jaffle_shop_snowflake
+unique_name: jaffle_shop.catalog
 object_type: catalog
 label: jaffle_shop
 aggressive_agg_promotion: false
