@@ -1,0 +1,10 @@
+unique_name: orders_last_7_days
+object_type: metric_calc
+label: orders_last_7_days
+description: Count of orders.
+expression: >-
+  CASE WHEN ISEMPTY([Measures].[order_count]) THEN NULL ELSE
+  Aggregate(PeriodsToDate([ordered_at Date Dimension].[ordered_at Date Week
+  Hierarchy].[ordered_at YearWeek], [ordered_at Date Dimension].[ordered_at Date
+  Week Hierarchy].CurrentMember), [Measures].[order_count]) END
+folder: Orders

@@ -1,0 +1,9 @@
+unique_name: order_total
+object_type: metric
+label: order_total
+description: The total amount for each order including taxes.
+calculation_method: sum
+column: ORDER_TOTAL
+dataset: orders_dataset
+folder: Orders
+unrelated_dimensions_handling: repeat
