@@ -1,9 +1,0 @@
-unique_name: locations_with_orders
-object_type: metric
-label: locations_with_orders
-description: Distinct count of locations with order
-calculation_method: count distinct
-column: LOCATIONS_WITH_ORDERS
-dataset: orders_dataset
-folder: Orders
-unrelated_dimensions_handling: repeat

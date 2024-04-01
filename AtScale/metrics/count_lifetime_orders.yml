@@ -1,9 +1,0 @@
-unique_name: count_lifetime_orders
-object_type: metric
-label: count_lifetime_orders
-description: Total count of orders per customer.
-calculation_method: sum
-column: COUNT_LIFETIME_ORDERS
-dataset: customers_dataset
-folder: Customers
-unrelated_dimensions_handling: repeat
