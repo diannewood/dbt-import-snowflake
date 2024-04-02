@@ -52,7 +52,7 @@ hierarchies:
             key_columns:
               - DAY_OF_WEEK_NAME
             name_column: DAY_OF_WEEK_NAME
-            sort_column: DAY_OF_WEEK_NAME
+            sort_column: DAY_OF_WEEK
           - unique_name: Day_Date
             label: Day Date
             dataset: dim_time_dataset
