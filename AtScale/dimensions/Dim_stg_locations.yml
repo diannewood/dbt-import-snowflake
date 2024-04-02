@@ -8,6 +8,19 @@ hierarchies:
     folder: Stg_locations
     levels:
       - unique_name: location
+        secondary_attributes:
+          - unique_name: location_name
+            label: location_name
+            dataset: stg_locations_dataset
+            key_columns:
+              - LOCATION_NAME
+            name_column: LOCATION_NAME
+          - unique_name: opened_at
+            label: opened_at
+            dataset: stg_locations_dataset
+            key_columns:
+              - OPENED_AT
+            name_column: OPENED_AT
 level_attributes:
   - unique_name: location
     label: location

@@ -8,6 +8,37 @@ hierarchies:
     folder: Orders
     levels:
       - unique_name: order_id
+        secondary_attributes:
+          - unique_name: ordered_at
+            label: ordered_at
+            dataset: orders_dataset
+            key_columns:
+              - ORDERED_AT
+            name_column: ORDERED_AT
+          - unique_name: ordered_at_test
+            label: ordered_at_test
+            dataset: orders_dataset
+            key_columns:
+              - ORDERED_AT_TEST
+            name_column: ORDERED_AT_TEST
+          - unique_name: order_total_dim
+            label: order_total_dim
+            dataset: orders_dataset
+            key_columns:
+              - ORDER_TOTAL_DIM
+            name_column: ORDER_TOTAL_DIM
+          - unique_name: is_food_order
+            label: is_food_order
+            dataset: orders_dataset
+            key_columns:
+              - IS_FOOD_ORDER
+            name_column: IS_FOOD_ORDER
+          - unique_name: is_drink_order
+            label: is_drink_order
+            dataset: orders_dataset
+            key_columns:
+              - IS_DRINK_ORDER
+            name_column: IS_DRINK_ORDER
 level_attributes:
   - unique_name: order_id
     label: order_id

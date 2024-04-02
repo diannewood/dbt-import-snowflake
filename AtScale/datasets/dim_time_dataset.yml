@@ -51,28 +51,25 @@ columns:
   - name: QUARTER_OF_YEAR_NAME
     data_type: string
 connection_id: dbt_connection_Snowflake - QT
-sql: |-
-  SELECT DATE_DAY::TIMESTAMP as PK_DATE,
-            cast(to_char(DATE_DAY, '%Y%m%d') as decimal) as DATEKEY,
-            to_char(DATE_DAY, '%A, %B %d, %Y') as DATE_NAME,
-            CAST(EXTRACT(YEAR from DATE_DAY) AS STRING) as YEAR,
-            concat('Calendar ',to_char(DATE_DAY, '%Y')) as YEAR_NAME,
-            IFF(EXTRACT(QUARTER FROM DATE_DAY) < 3, DATE_TRUNC('year', DATE_DAY), DATEADD('quarter', 2, DATE_TRUNC('year', DATE_DAY))) as HALF_YEAR,
-            IFF(EXTRACT(QUARTER FROM DATE_DAY) < 3, concat('Semester 1, ',to_char(DATE_DAY, '%Y')), concat('Semester 2, ', to_char(DATE_DAY, '%Y')))as HALF_YEAR_NAME,
-            DATE_TRUNC('quarter', DATE_DAY) as QUARTER,
-            concat('Quarter ', EXTRACT(QUARTER from DATE_DAY), ', ', EXTRACT(YEAR from DATE_DAY)) as QUARTER_NAME,
-            DATE_TRUNC('month', DATE_DAY) as MONTH,
-            to_char(DATE_DAY, '%B %Y') as MONTH_NAME,
-            DATE_TRUNC('week', DATE_DAY) as WEEK,
-            concat('Week ', EXTRACT(WEEK from DATE_DAY), to_char(DATE_DAY, ', %Y')) as WEEK_NAME,
-            EXTRACT(DAYOFYEAR from DATE_DAY) as DAY_OF_YEAR,
-            concat('Day ', EXTRACT(DAYOFYEAR from DATE_DAY)) as DAY_OF_YEAR_NAME,
-            EXTRACT(DAYOFWEEK from DATE_DAY) as DAY_OF_WEEK,
-            DAYNAME(DATE_DAY) as DAY_OF_WEEK_NAME,
-            EXTRACT(WEEK from DATE_DAY) as WEEK_OF_YEAR,
-            concat('Week ', EXTRACT(WEEK from DATE_DAY)) as WEEK_OF_YEAR_NAME,
-            EXTRACT(MONTH from DATE_DAY) as MONTH_OF_YEAR,
-            MONTHNAME(DATE_DAY) as MONTH_OF_YEAR_NAME,
-            EXTRACT(QUARTER from DATE_DAY) as QUARTER_OF_YEAR,
-            concat('Quarter ', EXTRACT(QUARTER from DATE_DAY)) as QUARTER_OF_YEAR_NAME
-            FROM QT.DBT_DWOOD.METRICFLOW_TIME_SPINE
+sql: >-
+  SELECT DATE_DAY::TIMESTAMP as PK_DATE, cast(to_char(DATE_DAY, '%Y%m%d') as
+  decimal) as DATEKEY, to_char(DATE_DAY, '%A, %B %d, %Y') as DATE_NAME,
+  CAST(EXTRACT(YEAR from DATE_DAY) AS STRING) as YEAR, concat('Calendar
+  ',to_char(DATE_DAY, '%Y')) as YEAR_NAME, IFF(EXTRACT(QUARTER FROM DATE_DAY) <
+  3, DATE_TRUNC('year', DATE_DAY), DATEADD('quarter', 2, DATE_TRUNC('year',
+  DATE_DAY))) as HALF_YEAR, IFF(EXTRACT(QUARTER FROM DATE_DAY) < 3,
+  concat('Semester 1, ',to_char(DATE_DAY, '%Y')), concat('Semester 2, ',
+  to_char(DATE_DAY, '%Y'))) as HALF_YEAR_NAME, DATE_TRUNC('quarter', DATE_DAY)
+  as QUARTER, concat('Quarter ', EXTRACT(QUARTER from DATE_DAY), ', ',
+  EXTRACT(YEAR from DATE_DAY)) as QUARTER_NAME, DATE_TRUNC('month', DATE_DAY) as
+  MONTH, to_char(DATE_DAY, '%B %Y') as MONTH_NAME, DATE_TRUNC('week', DATE_DAY)
+  as WEEK, concat('Week ', EXTRACT(WEEK from DATE_DAY), to_char(DATE_DAY, ',
+  %Y')) as WEEK_NAME, EXTRACT(DAYOFYEAR from DATE_DAY) as DAY_OF_YEAR,
+  concat('Day ', EXTRACT(DAYOFYEAR from DATE_DAY)) as DAY_OF_YEAR_NAME,
+  EXTRACT(DAYOFWEEK from DATE_DAY) as DAY_OF_WEEK, DAYNAME(DATE_DAY) as
+  DAY_OF_WEEK_NAME, EXTRACT(WEEK from DATE_DAY) as WEEK_OF_YEAR, concat('Week ',
+  EXTRACT(WEEK from DATE_DAY)) as WEEK_OF_YEAR_NAME, EXTRACT(MONTH from
+  DATE_DAY) as MONTH_OF_YEAR, MONTHNAME(DATE_DAY) as MONTH_OF_YEAR_NAME,
+  EXTRACT(QUARTER from DATE_DAY) as QUARTER_OF_YEAR, concat('Quarter ',
+  EXTRACT(QUARTER from DATE_DAY)) as QUARTER_OF_YEAR_NAME FROM
+  QT.DBT_DWOOD.METRICFLOW_TIME_SPINE
