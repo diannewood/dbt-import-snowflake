@@ -1,6 +1,9 @@
 unique_name: customers_dataset
 object_type: dataset
 label: customers_dataset
+description: >-
+  Customer overview data mart, offering key details for each unique customer.
+  One row per customer.
 columns:
   - name: CUSTOMER
     data_type: string

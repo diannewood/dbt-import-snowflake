@@ -1,6 +1,9 @@
 unique_name: stg_locations_dataset
 object_type: dataset
 label: stg_locations_dataset
+description: >-
+  List of open locations with basic cleaning and transformation applied, one row
+  per location.
 columns:
   - name: LOCATION
     data_type: string

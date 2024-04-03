@@ -1,7 +1,8 @@
 unique_name: Dim_stg_locations
 object_type: dimension
 label: Dim stg_locations
-description: This dimension was generated from a relationship to dbt model 'stg_locations'
+description: |
+  Location dimension table. The grain of the table is one row per location.
 hierarchies:
   - unique_name: Stg_locations Hierarchy
     label: Stg_locations Hierarchy

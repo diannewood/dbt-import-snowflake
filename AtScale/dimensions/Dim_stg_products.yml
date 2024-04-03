@@ -1,7 +1,8 @@
 unique_name: Dim_stg_products
 object_type: dimension
 label: Dim stg_products
-description: This dimension was generated from a relationship to dbt model 'stg_products'
+description: |
+  Product dimension table. The grain of the table is one row per product.
 hierarchies:
   - unique_name: Stg_products Hierarchy
     label: Stg_products Hierarchy

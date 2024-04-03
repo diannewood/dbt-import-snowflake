@@ -1,6 +1,9 @@
 unique_name: stg_products_dataset
 object_type: dataset
 label: stg_products_dataset
+description: >-
+  Product (food and drink items that can be ordered) data with basic cleaning
+  and transformation applied, one row per product.
 columns:
   - name: PRODUCT
     data_type: string

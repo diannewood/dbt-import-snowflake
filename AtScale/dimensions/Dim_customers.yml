@@ -1,7 +1,8 @@
 unique_name: Dim_customers
 object_type: dimension
 label: Dim customers
-description: This dimension was generated from a relationship to dbt model 'customers'
+description: |
+  Customer grain mart.
 hierarchies:
   - unique_name: Customers Hierarchy
     label: Customers Hierarchy
