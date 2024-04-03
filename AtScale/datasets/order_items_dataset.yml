@@ -12,6 +12,7 @@ columns:
     sql: PRODUCT_ID
   - name: ORDERED_AT
     data_type: datetime
+    sql: CAST(ORDERED_AT AS DATETIME)
   - name: IS_FOOD_ITEM
     data_type: boolean
   - name: IS_DRINK_ITEM

@@ -39,6 +39,8 @@ metrics:
     folder: Orders
   - unique_name: average_tax_rate
     folder: Stg_locations
+  - unique_name: revenue_fill_nulls
+    folder: Other Calculations
   - unique_name: food_revenue_pct
     folder: Other Calculations
   - unique_name: revenue_prev_month
@@ -54,8 +56,6 @@ metrics:
   - unique_name: orders_fill_nulls_with_zero
     folder: Other Calculations
   - unique_name: twice_orders_fill_nulls_with_0
-    folder: Other Calculations
-  - unique_name: orders_last_7_days
     folder: Other Calculations
 relationships:
   - unique_name: order_items_dataset_Dim_orders
