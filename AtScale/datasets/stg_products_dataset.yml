@@ -1,0 +1,24 @@
+unique_name: stg_products_dataset
+object_type: dataset
+label: stg_products_dataset
+description: >-
+  Product (food and drink items that can be ordered) data with basic cleaning
+  and transformation applied, one row per product.
+columns:
+  - name: PRODUCT
+    data_type: string
+    sql: PRODUCT_ID
+  - name: PRODUCT_NAME
+    data_type: string
+  - name: PRODUCT_TYPE
+    data_type: string
+  - name: PRODUCT_DESCRIPTION
+    data_type: string
+  - name: IS_FOOD_ITEM
+    data_type: boolean
+  - name: IS_DRINK_ITEM
+    data_type: boolean
+  - name: PRODUCT_PRICE
+    data_type: string
+connection_id: dbt_connection_Snowflake - QT
+table: STG_PRODUCTS

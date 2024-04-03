@@ -1,0 +1,43 @@
+unique_name: Dim_customers
+object_type: dimension
+label: Dim customers
+description: |
+  Customer grain mart.
+hierarchies:
+  - unique_name: Customers Hierarchy
+    label: Customers Hierarchy
+    folder: Customers
+    levels:
+      - unique_name: customer
+        secondary_attributes:
+          - unique_name: customer_name
+            label: customer_name
+            dataset: customers_dataset
+            key_columns:
+              - CUSTOMER_NAME
+            name_column: CUSTOMER_NAME
+          - unique_name: customer_type
+            label: customer_type
+            dataset: customers_dataset
+            key_columns:
+              - CUSTOMER_TYPE
+            name_column: CUSTOMER_TYPE
+          - unique_name: first_ordered_at
+            label: first_ordered_at
+            dataset: customers_dataset
+            key_columns:
+              - FIRST_ORDERED_AT
+            name_column: FIRST_ORDERED_AT
+          - unique_name: last_ordered_at
+            label: last_ordered_at
+            dataset: customers_dataset
+            key_columns:
+              - LAST_ORDERED_AT
+            name_column: LAST_ORDERED_AT
+level_attributes:
+  - unique_name: customer
+    label: customer
+    dataset: customers_dataset
+    key_columns:
+      - CUSTOMER
+    name_column: CUSTOMER

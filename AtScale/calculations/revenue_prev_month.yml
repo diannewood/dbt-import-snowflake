@@ -1,0 +1,10 @@
+unique_name: revenue_prev_month
+object_type: metric_calc
+label: revenue_prev_month
+description: Calculation created from parent metric 'revenue_growth_mom'
+expression: >-
+  CASE WHEN ISEMPTY([Measures].[revenue]) THEN NULL ELSE
+  (ParallelPeriod([ordered_at Date Dimension].[ordered_at Date Month
+  Hierarchy].[ordered_at Month1], 1, [ordered_at Date Dimension].[ordered_at
+  Date Month Hierarchy].CurrentMember), [Measures].[revenue]) END
+folder: Order_items

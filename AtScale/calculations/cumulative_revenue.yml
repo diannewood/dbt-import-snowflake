@@ -1,0 +1,10 @@
+unique_name: cumulative_revenue
+object_type: metric_calc
+label: cumulative_revenue
+description: The cumulative revenue for all orders.
+expression: >-
+  CASE WHEN ISEMPTY([Measures].[revenue]) THEN NULL ELSE
+  Aggregate(PeriodsToDate([ordered_at Date Dimension].[ordered_at Date Week
+  Hierarchy].[ordered_at YearWeek], [ordered_at Date Dimension].[ordered_at Date
+  Week Hierarchy].CurrentMember), [Measures].[revenue]) END
+folder: Order_items

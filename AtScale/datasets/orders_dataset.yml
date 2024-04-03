@@ -1,0 +1,45 @@
+unique_name: orders_dataset
+object_type: dataset
+label: orders_dataset
+description: >-
+  Order overview data mart, offering key details for each order inlcluding if
+  it's a customer's first order and a food vs. drink item breakdown. One row per
+  order.
+columns:
+  - name: ORDER_ID
+    data_type: string
+  - name: LOCATION
+    data_type: string
+    sql: LOCATION_ID
+  - name: CUSTOMER
+    data_type: string
+    sql: CUSTOMER_ID
+  - name: ORDERED_AT
+    data_type: datetime
+  - name: ORDERED_AT_TEST
+    data_type: datetime
+    sql: ORDERED_AT
+  - name: ORDER_TOTAL_DIM
+    data_type: string
+    sql: ORDER_TOTAL
+  - name: IS_FOOD_ORDER
+    data_type: boolean
+  - name: IS_DRINK_ORDER
+    data_type: boolean
+  - name: ORDER_TOTAL
+    data_type: decimal
+  - name: ORDER_COUNT
+    data_type: long
+    sql: '1'
+  - name: TAX_PAID
+    data_type: decimal
+  - name: CUSTOMERS_WITH_ORDERS
+    data_type: string
+    sql: CUSTOMER_ID
+  - name: LOCATIONS_WITH_ORDERS
+    data_type: string
+    sql: LOCATION_ID
+  - name: ORDER_COST
+    data_type: decimal
+connection_id: dbt_connection_Snowflake - QT
+table: ORDERS
