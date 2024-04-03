@@ -1,6 +1,0 @@
-unique_name: dbt_connection_Snowflake - QT
-object_type: connection
-label: DBT snowflake Connection Snowflake - QT
-as_connection: Snowflake - QT
-database: QT
-schema: DBT_DWOOD

@@ -1,8 +1,0 @@
-unique_name: orders_fill_nulls_with_zero
-object_type: metric_calc
-label: orders_fill_nulls_with_zero
-description: Example metric colaescing null to zero.
-expression: >-
-  CASE WHEN ISEMPTY([Measures].[order_count]) THEN 0 ELSE
-  [Measures].[order_count] END
-folder: Orders

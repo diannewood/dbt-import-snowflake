@@ -1,9 +1,0 @@
-unique_name: orders_fill_nulls_with_zero
-object_type: metric
-label: orders_fill_nulls_with_zero
-description: Example metric colaescing null to zero.
-calculation_method: sum
-column: ORDER_COUNT
-dataset: orders_dataset
-folder: Orders
-unrelated_dimensions_handling: repeat
