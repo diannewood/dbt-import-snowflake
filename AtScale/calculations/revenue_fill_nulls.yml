@@ -1,6 +1,0 @@
-unique_name: revenue_fill_nulls
-object_type: metric_calc
-label: revenue_fill_nulls
-description: Sum of the product revenue for each order item. Excludes tax.
-expression: CASE WHEN ISEMPTY([Measures].[revenue]) THEN 0 ELSE [Measures].[revenue] END
-folder: Order_items
