@@ -1,0 +1,17 @@
+unique_name: Dim_customers
+object_type: dimension
+label: Dim customers
+description: This dimension was generated from a relationship to dbt model 'customers'
+hierarchies:
+  - unique_name: Customers Hierarchy
+    label: Customers Hierarchy
+    folder: Customers
+    levels:
+      - unique_name: customer
+level_attributes:
+  - unique_name: customer
+    label: customer
+    dataset: customers_dataset
+    key_columns:
+      - CUSTOMER
+    name_column: CUSTOMER

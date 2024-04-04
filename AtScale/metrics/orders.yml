@@ -1,0 +1,9 @@
+unique_name: orders
+object_type: metric
+label: orders
+description: Count of orders.
+calculation_method: sum
+column: ORDER_COUNT
+dataset: orders_dataset
+folder: Orders
+unrelated_dimensions_handling: repeat
